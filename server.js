@@ -5,15 +5,26 @@ const mongoose = require("mongoose"); // require package
 const app = express();
 const methodOverride = require("method-override");
 const morgan = require("morgan");
+const path = require("path");
 mongoose.connect(process.env.MONGODB_URI); // connect to MongoDB using the connection string in the .env file
 mongoose.connection.on("connected", () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
   });
 const Bread = require("./models/bread.js"); // import the Bread model
 app.use(express.urlencoded({ extended: false }));
-app.use(methodOverride("_method")); 
+app.use(methodOverride("_method"));
+app.use(express.static(path.join(__dirname, "public"))); 
 // app.use(morgan("dev")); too much BOWLSHIT IN THE TERMINAL
 
+const images = [
+    '/images/boule.png',
+    '/images/bread 2.png',
+    '/images/bread 3.png',
+    '/images/bread.png',
+    '/images/croissant.png',
+    '/images/rye-bread.png',
+    '/images/whole-grain.png'
+  ];
 
 app.get("/", async (req, res) => {
     res.render("index.ejs");
@@ -33,7 +44,8 @@ app.get("/breads/new", (req, res) => {
 // GET /breadId  
 app.get("/breads/:breadId", async (req, res) => {
     const foundBread = await Bread.findById(req.params.breadId);
-    res.render("breads/show.ejs", { bread: foundBread });
+    const randomBread = images[Math.floor(Math.random() * images.length)];
+    res.render("breads/show.ejs", { bread: foundBread, randomBread });
 });
   
 // POST /breads

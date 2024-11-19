@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Make a new dough</title>
   </head>
   <body>
@@ -10,12 +11,15 @@
     <form action="/breads" method="POST">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" />
-    
+        <div class="checkbox-div">
         <label for="isProofed">Is it proofed?</label>
         <input type="checkbox" name="isProofed" id="isProofed" />
-    
+        </div>
         <button type="submit">Mix Dough</button>
       </form>
-      <a href="/breads/">Back to Breads</a>
+      <a class="breads-index-link" href="/breads">
+        <div class="index-link-text">Back to Breads</a></div>
+      <a class="home-link" href="/">
+        <div class="home-link-text">Home Page</a></div>
     </body>
     </html>

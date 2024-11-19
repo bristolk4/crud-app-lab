@@ -3,17 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Bread Index</title>
   </head>
   <body>
-    <h1>All Bread</h1>
-    <ul>
-        <% breads.forEach(bread => { %>
-          <li>
-            <a href="/breads/<%= bread._id %>"> <%= bread.name %> </a>
-          </li>
-        <% }); %>
-      </ul>
-    <a href="/breads/new">Mix New Dough</a>
+    <div class="index-header-div">
+      <h1>All Bread</h1>
+      <a class="add-bread" href="/breads/new">Mix New Dough</a>
+    </div>
+    <ul class="bread-list">
+      <% breads.forEach((bread)=> { %>
+      <li>
+        <a class="bread-cards" href="/breads/<%=bread._id%>">
+          <%= bread.name %>
+        </a>
+      </li>
+      <% }) %>
+    </ul>
+    <a class="home-link" href="/">
+        <div class="home-link-text">Home Page</a></div>
   </body>
 </html>

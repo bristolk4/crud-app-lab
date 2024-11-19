@@ -3,20 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title><%= bread.name %></title> <!-- Dynamic title based on bread name -->
   </head>
   <body>
+    <div class="bread-details">
     <h1><%= bread.name %></h1>
+    <img id="randomBread" src="<%= randomBread %>" alt="Random Bread" />
     <% if (bread.isProofed) { %>
       <p>This dough is proofed!</p>
     <% } else { %>
       <p>This dough is not proofed!</p>
     <% } %>
-    <form action="/breads/<%=bread._id%>?_method=DELETE" method="POST">
-        <button type="submit">Delete <%= bread.name %></button>
+    <div class="bread-actions">
+    <form class="delete-form" action="/breads/<%=bread._id%>?_method=DELETE" method="POST">
+        <button class="delete-button" type="submit">Delete <%= bread.name %></button>
       </form>
-      <a href="/breads/<%= bread._id %>/edit">Edit <%= bread.name %></a>
-    <a href="/breads/">Back to Breads</a>
-
+      <a class="edit-link" href="/breads/<%= bread._id %>/edit">
+        <div class="edit-text">Edit <%= bread.name %></div>
+        </a>
+    </div>
+    </div>
+      <a class="breads-index-link" href="/breads">
+        <div class="index-link-text">Back to Breads</a></div>
+      <a class="home-link" href="/">
+        <div class="home-link-text">Home Page</a></div>
   </body>
 </html>
