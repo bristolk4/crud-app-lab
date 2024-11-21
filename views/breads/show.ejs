@@ -9,7 +9,23 @@
   <body>
     <div class="bread-details">
     <h1><%= bread.name %></h1>
-    <img id="randomBread" src="<%= randomBread %>" alt="Random Bread" />
+    <img id="randomBread"
+      src="<% if (bread.name == 'Croissant') { %>
+        /images/croissant.png
+        <% } else if (bread.name == 'Baguette') { %>
+          /images/bread 2.png
+        <% } else if (bread.name == 'Rye') { %>
+          /images/rye-bread.png
+        <% } else if (bread.name == 'Whole grain') { %>
+          /images/whole-grain.png
+        <% } else if (bread.name == 'Sourdough') { %>
+          /images/boule.png
+        <% } else if (bread.name == 'Ciabatta') { %>
+          /images/bread 3.png
+        <% } else { %>
+          /images/bread.png
+          <% } %>" 
+    alt="<%= bread.name %>" />
     <% if (bread.isProofed) { %>
       <p>This dough is proofed!</p>
     <% } else { %>
