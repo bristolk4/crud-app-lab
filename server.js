@@ -44,16 +44,16 @@ app.get("/breads/new", (req, res) => {
 // GET /breadId  
 app.get("/breads/:breadId", async (req, res) => {
     const foundBread = await Bread.findById(req.params.breadId);
-    const randomBread = images[Math.floor(Math.random() * images.length)];
-    res.render("breads/show.ejs", { bread: foundBread, randomBread });
+    // const randomBread = images[Math.floor(Math.random() * images.length)]; no longer need to generate random bread img
+    res.render("breads/show.ejs", { bread: foundBread });
 });
   
 // POST /breads
 app.post("/breads", async (req, res) => {
-    if (req.body.isProofed === "on") {
-      req.body.isProofed = true;
+    if (req.body.hasIngred === "on") {
+      req.body.hasIngred = true;
     } else {
-      req.body.isProofed = false;
+      req.body.hasIngred = false;
     }
     await Bread.create(req.body);
     res.redirect("/breads"); // redirect to index breads
@@ -75,11 +75,11 @@ app.get("/breads/:breadId/edit", async (req, res) => {
 
 // UPDATE
 app.put("/breads/:breadId", async (req, res) => {
-    // Handle the 'isProofed' checkbox data
-    if (req.body.isProofed === "on") {
-      req.body.isProofed = true;
+    // Handle the 'hasIngred' checkbox data
+    if (req.body.hasIngred === "on") {
+      req.body.hasIngred = true;
     } else {
-      req.body.isProofed = false;
+      req.body.hasIngred = false;
     }  
     // Update the bread in the database
     await Bread.findByIdAndUpdate(req.params.breadId, req.body);

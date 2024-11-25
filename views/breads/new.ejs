@@ -4,18 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <title>Make a new dough</title>
+    <title>Add MORE BREAD</title>
   </head>
   <body>
-    <h1>Mix a New Dough!</h1>
+    <h1>Add MORE BREAD</h1>
     <form action="/breads" method="POST">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" />
+
         <div class="checkbox-div">
-        <label for="isProofed">Is it proofed?</label>
-        <input type="checkbox" name="isProofed" id="isProofed" />
+        <label for="hasIngred">Do you have the ingredients?</label>
+        <input type="checkbox" name="hasIngred" id="hasIngred" />
         </div>
-        <button type="submit">Mix Dough</button>
+
+        <!-- <div class="ingred-box">  TRIED TO ADD INGREDIENTS, FAILED
+          <h2>Ingredients</h2>
+          <div id="single-ingred">
+            <label for="ingred-name1">Ingredient name: </label>
+            <input type="text" name="ingred[0][name]" id="ingred-name1">
+
+            <label for="ingred-amount1">Amount: </label>
+            <input type="text" name="ingred[0][amount]" id="ingred-amount1">
+          </div>
+          </div>
+          <button type="button" id="add-ingred-button">Add Ingredient</button> -->
+
+        <button type="submit">Add Bread</button>
       </form>
       <a class="breads-index-link" href="/breads">
         <div class="index-link-text">Back to Breads</a></div>

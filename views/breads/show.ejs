@@ -26,10 +26,10 @@
           /images/bread.png
           <% } %>" 
     alt="<%= bread.name %>" />
-    <% if (bread.isProofed) { %>
-      <p>This dough is proofed!</p>
+    <% if (bread.hasIngred) { %>
+      <p>You have the ingredients!</p>
     <% } else { %>
-      <p>This dough is not proofed!</p>
+      <p>You don't have the ingredients!</p>
     <% } %>
     <div class="bread-actions">
     <form class="delete-form" action="/breads/<%=bread._id%>?_method=DELETE" method="POST">

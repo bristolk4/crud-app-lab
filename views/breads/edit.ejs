@@ -12,8 +12,8 @@
       <label for="name">Name:</label>
       <input type="text" name="name" value="<%= bread.name %>" />
       <div class="checkbox-div">
-      <label for="isProofed">Is it proofed?</label>
-      <input type="checkbox" name="isProofed" <% if (bread.isProofed) { %>checked<% } %> >
+      <label for="hasIngred">Do you have the ingredients?</label>
+      <input type="checkbox" name="hasIngred" <% if (bread.hasIngred) { %>checked<% } %> >
       </div>
       <button type="submit">Update Bread</button>
     </form>
